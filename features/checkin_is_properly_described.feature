@@ -1,5 +1,6 @@
-Feature: Does the EGI Website show that CheckIn is production?
-  Everybody expects CheckIn to be in production
+Feature: Does the EGI Website correctly describe the state of CheckIn?
+  Everybody expects CheckIn to be in production, but it is only production for internal users.
+  External users are able to enquire about it, even though it's marked as beta
 
   Scenario: CheckIn is in Beta for the world, but production internally
     Given I am on www.egi.eu
