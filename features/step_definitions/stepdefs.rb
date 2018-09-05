@@ -1,10 +1,14 @@
 require 'watir'
 require "rspec/expectations"
 
-Given("I am on www.egi.eu") do
+Before do
   @browser ||= Watir::Browser.new :firefox
+end
+
+Given("I am on www.egi.eu") do
+  
   @browser.goto "https://egi.eu"
-  @browser.title.should == "EGI | EGI Advanced Computing Services for Research"
+  expect(@browser.title).to eq("EGI | EGI Advanced Computing Services for Research")
   @browser.link(href: "https://www.egi.eu/services/").should exist
 end
 
@@ -39,25 +43,24 @@ When("I go to internal services") do
 end
 
 Then("it has a list of services") do
-  # there are two columns of services (wpb_column vc_column_container vc_col-sm-6)
-  # Security is in the first one
-  services = @browser.divs(class: 'wpb_column vc_column_container vc_col-sm-6')
-  services.each do |service|
-    puts service
-  first_column = @browser.divs(class: 'wpb_column vc_column_container vc_col-sm-6').length.should cmp(2)
-  end
+  # there are three columns of services (wpb_column vc_column_container vc_col-sm-6)
+  # Security is in the first one.
+  # The other two are "Co-ordination" and "Operations"
+  services = @browser.divs(class: ['wpb_column', 'vc_column_container', 'vc_col-sm-6'])
+  expect(@browser.divs(class: ['wpb_column', 'vc_column_container', 'vc_col-sm-6']).length).to eq(3)
 end
 
 Then("one of them is Security") do
-  pending # Write code here that turns the phrase above into concrete actions
+  # test that the icon is the same as a reference - https://stackoverflow.com/questions/16841401/compare-two-images-using-selenium-ruby-webdriver#16852123
+  expect(@browser.h3(class: 'service_title').text).to match(/security/i)
 end
 
 Then("The security item lists CheckIn") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@browser.h6(class: 'icon_title').text).to match(/check-in/i)
 end
 
 Then("the service is not marked in Beta") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@browser.h6(class: 'icon_title').text).not_to match(/beta/i)
 end
 
 After do
