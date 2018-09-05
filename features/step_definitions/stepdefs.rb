@@ -24,7 +24,10 @@ Then("I see a link to CheckIn") do
 end
 
 Then("The page shows that CheckIn for external users is in Beta") do
-  @browser.h5.span.link(text: "Check-in ").should exist
+  @browser.link(visible_text: /Check-in/, href: "https://www.egi.eu/services/check-in/").should exist
+  @browser.h5.span(style: 'color: #1e73be;').should exist
+  spans = @browser.span(style: 'color: #1e73be;', text: /^check-in.*beta/i).should exist
+  
   @browser.close
 end
 
