@@ -5,3 +5,6 @@ group :test do
   gem 'rspec', '~> 3.7.0'
   gem 'watir'
 end
+gem "selenium-webdriver", "~> 3.14"
+
+gem "watir-webdriver", "~> 0.9.9"
