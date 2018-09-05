@@ -48,7 +48,6 @@ Then("it has a list of services") do
   # there are three columns of services (wpb_column vc_column_container vc_col-sm-6)
   # Security is in the first one.
   # The other two are "Co-ordination" and "Operations"
-  services = @browser.divs(class: ['wpb_column', 'vc_column_container', 'vc_col-sm-6'])
   expect(@browser.divs(class: ['wpb_column', 'vc_column_container', 'vc_col-sm-6']).length).to eq(3)
 end
 
