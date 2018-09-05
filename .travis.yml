@@ -11,6 +11,9 @@ env:
   secure: bwuCNkqXZglNMNsWugTetUPLptYZPSRo+PTk7ttNtXApThYFz7p1fd4KI4goYtJe0UxjRX+hHU7v05PVsNASmt3H2gufwj2P3jnlrhy4qbMb0AqpVPBEaqfp99xltQ6JpmNaX1JqgU+HIjdbOMUZ9p1cfKnZUgeNkIJLi0GQN1vpBNOJrnt40/UgnqOdEE2ukldgl5nQ9ieMqidlac4JV52C/ZUVYmr+7kDJ0GID6nlAc9KxJP0vYkSx8EtKbCJCPQMVUsIqI+PvlctADpDl/qz7Pj3dLH7NleIic6GL7RSYiT47/E7H674brPvWg3zN6gpf6Xf0Q7JNbyajXuEyr6ukAS6fZ2B+X7N2fMKhG9ligZ3HGgh/IlyLV0FxxcRh6QEcP7UhCkck0Lfs08vBJRMyFE77XJP3icOkb8V8RDu/Uf/d3Ssw46BSyTIkye+QgQUu+/Xh4IXnhrZczfBQ8fMKDushY2F8cusGsgwc0vkIyTHeaSPGVrTyzSXPb2JWP13/Yp2DAjHWsI4bjPk8D3BLZW17vb9VI1xKD95fYNCILTJzyhA/3/LuM2xwsp7biPiY+4UvbOB4yGfsxJstrcgQO5U5oFcpYcNCJkKpCkD6Dn9l6JHd7IBMtqjkPuJoU13Drs0pXxVVXfX0DZvNOzqrW/F7WbzdJTcO+u0rbfc=
 addons:
   firefox: latest
+  apt:
+    - curl
+    - grep
 before_install:
   - wget "https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux64.tar.gz"
     -O geckodriver.tar.gz
