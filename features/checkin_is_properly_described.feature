@@ -1,3 +1,4 @@
+@checkin @public @engagement
 Feature: Does the EGI Website correctly describe the state of CheckIn?
   Everybody expects CheckIn to be in production, but it is only production for internal users.
   External users are able to enquire about it, even though it's marked as beta

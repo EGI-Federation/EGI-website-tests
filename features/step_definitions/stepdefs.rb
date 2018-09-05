@@ -9,7 +9,7 @@ Given("I am on www.egi.eu") do
   
   @browser.goto "https://egi.eu"
   expect(@browser.title).to eq("EGI | EGI Advanced Computing Services for Research")
-  @browser.link(href: "https://www.egi.eu/services/").should exist
+  expect(@browser.link(href: "https://www.egi.eu/services/")).to exist
 end
 
 When("I go to Services") do
@@ -17,20 +17,22 @@ When("I go to Services") do
 end
 
 Then("I see a link to Internal Services") do
-  @browser.link(href: "https://www.egi.eu/internal-services/").should exist
+  expect(@browser.link(href: "https://www.egi.eu/internal-services/")).to exist
 end
 
 Then("I see a link to CheckIn") do
   # table holder div should be there
-  @browser.h3(class: "service_title", text: "Security").should exist
+  expect(@browser.h3(class: "service_title", text: "Security")).to exist
   # A link with CheckIn should be there
-  @browser.link(href: "https://www.egi.eu/services/check-in/").should exist
+  expect(@browser.link(href: "https://www.egi.eu/services/check-in/")).to exist
 end
 
 Then("The page shows that CheckIn for external users is in Beta") do
-  @browser.link(visible_text: /Check-in/, href: "https://www.egi.eu/services/check-in/").should exist
-  @browser.h5.span(style: 'color: #1e73be;').should exist
-  spans = @browser.span(style: 'color: #1e73be;', text: /^check-in.*beta/i).should exist
+  expect(@browser
+        .link(visible_text: /Check-in/,
+              href: "https://www.egi.eu/services/check-in/")).to exist
+  expect(@browser.h5.span(style: 'color: #1e73be;')).to exist
+  expect(@browser.span(style: 'color: #1e73be;', text: /^check-in.*beta/i)).to exist
 end
 
 Given("I am on the services page") do
