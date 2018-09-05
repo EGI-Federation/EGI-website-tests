@@ -20,11 +20,11 @@ Then("I see a link to CheckIn") do
   # table holder div should be there
   @browser.h3(class: "service_title", text: "Security").should exist
   # A link with CheckIn should be there
-  @browser.link(href: "https://www.egi.eu/services/check-in").should exist
+  @browser.link(href: "https://www.egi.eu/services/check-in/").should exist
 end
 
 Then("The page shows that CheckIn for external users is in Beta") do
-  @browser.h5(text: "BETA").should exist
+  @browser.h5.span.link(text: "Check-in ").should exist
   @browser.close
 end
 
