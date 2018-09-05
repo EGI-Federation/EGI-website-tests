@@ -5,4 +5,5 @@ rvm:
 install:
   - bundle install
 script:
+  - cucumber
   - cucumber -f json > cucumber-results.json

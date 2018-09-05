@@ -1,5 +1,7 @@
 # EGI Website tests
 
+[![Build Status](https://travis-ci.org/EGI-Foundation/EGI-website-tests.svg?branch=master)](https://travis-ci.org/EGI-Foundation/EGI-website-tests)
+
 These are behaviour-driven tests for the [EGI website](https://egi.eu), using [cucumber](https://docs.cucumber.io/).
 The [features](/features) directory contains user stories and features that the website should have.
 The features are written in the [gherkin](https://docs.cucumber.io/gherkin/) language, using plain human language.
