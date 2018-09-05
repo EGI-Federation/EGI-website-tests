@@ -19,13 +19,13 @@ end
 Then("I see a link to CheckIn") do
   # table holder div should be there
   @browser.h3(class: "service_title", text: "Security").should exist
-  # service table inner ul should be there
-  # an H3 with class service_title and text Security should be there
-  @browser.close
+  # A link with CheckIn should be there
+  @browser.link(href: "https://www.egi.eu/services/check-in").should exist
 end
 
 Then("The page shows that CheckIn for external users is in Beta") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.h5(text: "BETA").should exist
+  @browser.close
 end
 
 Given("I visit the services page") do
