@@ -1,6 +1,6 @@
 # EGI Website tests
 
-[![Build Status](https://travis-ci.org/EGI-Foundation/EGI-website-tests.svg?branch=master)](https://travis-ci.org/EGI-Foundation/EGI-website-tests)
+[![Build Status](https://travis-ci.org/EGI-Foundation/EGI-website-tests.svg?branch=master)](https://travis-ci.org/EGI-Foundation/EGI-website-tests) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6a36ccb73d54709a9e09e56ed134940)](https://app.codacy.com/app/brucellino/EGI-website-tests?utm_source=github.com&utm_medium=referral&utm_content=EGI-Foundation/EGI-website-tests&utm_campaign=Badge_Grade_Settings)
 
 These are behaviour-driven tests for the [EGI website](https://egi.eu), using [cucumber](https://docs.cucumber.io/).
 The [features](/features) directory contains user stories and features that the website should have.
