@@ -27,20 +27,25 @@ Then("The page shows that CheckIn for external users is in Beta") do
   @browser.link(visible_text: /Check-in/, href: "https://www.egi.eu/services/check-in/").should exist
   @browser.h5.span(style: 'color: #1e73be;').should exist
   spans = @browser.span(style: 'color: #1e73be;', text: /^check-in.*beta/i).should exist
-  
-  @browser.close
 end
 
-Given("I visit the services page") do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I am on the services page") do
+  @browser.goto('https://egi.eu/services/')
 end
+
 
 When("I go to internal services") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @browser.link(visible_text: /internal services/i).click()
 end
 
 Then("it has a list of services") do
-  pending # Write code here that turns the phrase above into concrete actions
+  # there are two columns of services (wpb_column vc_column_container vc_col-sm-6)
+  # Security is in the first one
+  services = @browser.divs(class: 'wpb_column vc_column_container vc_col-sm-6')
+  services.each do |service|
+    puts service
+  first_column = @browser.divs(class: 'wpb_column vc_column_container vc_col-sm-6').length.should cmp(2)
+  end
 end
 
 Then("one of them is Security") do
@@ -53,4 +58,8 @@ end
 
 Then("the service is not marked in Beta") do
   pending # Write code here that turns the phrase above into concrete actions
+end
+
+After do
+  @browser.close
 end
